@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
         DB::delete('delete from community_links');
         CommunityLink::factory(50)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }
