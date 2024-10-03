@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("Here you will see the Community Links!") }}
                     @foreach ($links as $link)
-                    <li><strong>{{$link->title}}</strong> || <small> Contributed by: {{$link->creator->name}} {{$link->updated_at->diffForHumans()}}</small></li>
+                    <li><strong>{{$link->title}}</strong> || <span class="text-sky-400"><small> Contributed by: {{$link->creator->name}} {{$link->updated_at->diffForHumans()}}</small></span></li>
                     @endforeach
                     {{$links->links()}}
                 </div>
