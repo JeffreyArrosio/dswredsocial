@@ -5,16 +5,22 @@
         <div class="mb-4">
             <label for="title" class="block text-white font-medium">Title:</label>
             <input type="text" id="title" name="title"
-                class="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                class="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 @error('title') is-invalid @enderror"
                 placeholder="What is the title of your article?">
         </div>
+        @error('title')
+        <div class="text-red-500">{{ "Titulo no válido" }}</div>
+        @enderror
 
         <div class="mb-4">
             <label for="link" class="block text-white font-medium">Link:</label>
             <input type="text" id="link" name="link"
-                class="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                class="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 @error('link') is-invalid @enderror"
                 placeholder="What is the URL?">
         </div>
+        @error('link')
+        <div class="text-red-500">{{ "URL incorrecta" }}</div>
+        @enderror
 
         <div class="pt-3">
             <button type="submit"

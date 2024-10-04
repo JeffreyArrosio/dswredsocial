@@ -16,7 +16,7 @@
                     <!-- Segunda Columna (1/3) -->
                     <div class="col-span-1">
                         <!-- Aquí puedes añadir contenido adicional -->
-                        <x-community-add-link></x-community-add-link>
+                        <x-community-add-link/>
                     </div>
                 </div>
             </div>
