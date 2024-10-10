@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CommunityLink;
+use App\Models\Channel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,8 @@ class CommunityLinkController extends Controller
     public function index()
     {
         $links = CommunityLink::paginate(25);
-        return view('dashboard', compact('links'));
+        $channels = Channel::orderBy('title','asc')->get();
+        return view('dashboard', compact('links','channels'));
     }
 
     /**
@@ -33,12 +35,12 @@ class CommunityLinkController extends Controller
         $data = $request->validate([
             'title' => 'required|max:255',
             'link' => 'required|unique:community_links|url|max:255',
+            'channel_id' => 'required|exists:channels,id'
         ]);
-
         $link = new CommunityLink($data);
         // Si uso CommunityLink::create($data) tengo que declarar user_id y channel_id como $fillable
         $link->user_id = Auth::id();
-        $link->channel_id = 1;
+        // $link->channel_id = 1; Linea en desuso
         $link->save();
         return back();
     }
