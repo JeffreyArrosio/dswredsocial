@@ -4,7 +4,7 @@
         @csrf
         <div class="mb-4">
             <label for="title" class="block text-white font-medium">Title:</label>
-            <input type="text" id="title" name="title"
+            <input type="text" id="title" name="title" value="{{ old('title') }}"
                 class="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 @error('title') is-invalid @enderror"
                 placeholder="What is the title of your article?">
         </div>
@@ -14,7 +14,7 @@
 
         <div class="mb-4">
             <label for="link" class="block text-white font-medium">Link:</label>
-            <input type="text" id="link" name="link"
+            <input type="text" id="link" name="link" value="{{ old(key: 'link') }}"
                 class="mt-1 block w-full rounded-md border-gray-600 bg-gray-700 text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 @error('link') is-invalid @enderror"
                 placeholder="What is the URL?">
         </div>
@@ -29,7 +29,7 @@
                 name="channel_id">
                 <option selected disabled>Pick a Channel...</option>
                 @foreach ($channels as $channel)
-                <option value="{{ $channel->id }}">
+                <option value="{{ $channel->id }}" {{ old('channel_id') == $channel->id ? 'selected' : '' }}>
                     {{ $channel->title }}
                 </option>
                 @endforeach
