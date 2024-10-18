@@ -28,6 +28,12 @@ class CommunityLinkController extends Controller
         //
     }
 
+    public function myLinks(){
+        $user = Auth::user();
+        $links = $user->myLinks()->paginate(10);
+        return view('mylinks',compact('links'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
