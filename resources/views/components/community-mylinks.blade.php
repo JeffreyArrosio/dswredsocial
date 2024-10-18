@@ -18,6 +18,12 @@
         <span class="text-sky-400">
             <small>Contributed by: {{$link->creator->name}} {{$link->updated_at->diffForHumans()}}</small>
         </span>
+        <span>
+            ||
+            <small class="{{$link->approved ? 'text-green-400':'text-red-400'}}">
+                {{$link->approved ? 'APPROVED':'PENDING'}}
+            </small>
+        </span>
     </li>
     @endforeach
     @endif

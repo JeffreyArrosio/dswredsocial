@@ -9,7 +9,7 @@
     </div>
     @else
     @foreach ($links as $link)
-    <li>
+    <li class="mt-5">
         <span class="inline-block px-2 py-1 text-white text-sm font-semibold rounded"
             style="background-color: {{ $link->channel->color }}">
             {{ $link->channel->title }}
@@ -23,4 +23,6 @@
     @endif
 
 </ul>
-{{$links->links()}}
+<div class="mt-5">
+    {{$links->links()}}
+</div>
