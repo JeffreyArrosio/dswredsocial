@@ -24,7 +24,7 @@ return new class extends Migration
 
             $table->string('title');
 
-            $table->string('link')->unique();
+            $table->string('link');
 
             $table->boolean('approved')->default(0);
 
