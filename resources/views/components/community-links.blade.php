@@ -18,6 +18,9 @@
         <span class="text-sky-400">
             <small>Contributed by: {{$link->creator->name}} {{$link->updated_at->diffForHumans()}}</small>
         </span>
+        <span class="{{ $link->users()->count() >= 0 ? 'text-green-400':'text-red-400' }}">
+            {{ $link->users()->count() }}
+        </span>
     </li>
     @endforeach
     @endif
