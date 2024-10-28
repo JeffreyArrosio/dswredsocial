@@ -14,12 +14,15 @@ Route::get('/dashboard', [CommunityLinkController::class, 'index'])
 Route::post('/dashboard', [CommunityLinkController::class, 'store'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+Route::get('dashboard/{channel:slug}', [CommunityLinkController::class, 'index']);
 
 Route::get('/contact', action: function () {
     return view('contact');
 })->middleware(['auth', 'verified'])->name('contact');
 
-Route::get('/mylinks', [CommunityLinkController::class, 'myLinks']
+Route::get(
+    '/mylinks',
+    [CommunityLinkController::class, 'myLinks']
 )->middleware(['auth', 'verified'])->name('mylinks');
 
 Route::middleware('auth')->group(function () {
