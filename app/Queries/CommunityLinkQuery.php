@@ -4,6 +4,7 @@ namespace App\Queries;
 
 use App\Models\Channel;
 use App\Models\CommunityLink;
+use Illuminate\Support\Facades\DB;
 
 class CommunityLinkQuery
 
@@ -29,6 +30,14 @@ class CommunityLinkQuery
     public function getMostPopular()
     {
         $links = CommunityLink::where('approved', true)->withCount('users')->orderBy('users_count', 'desc')->paginate(25);;
+        return $links;
+    }
+
+    public function searchLink($value)
+    {
+        $links = CommunityLink::where('approved', true)
+            ->whereAny(['link','title'], 'LIKE', "%{$value}%")
+            ->paginate(10);
         return $links;
     }
 }

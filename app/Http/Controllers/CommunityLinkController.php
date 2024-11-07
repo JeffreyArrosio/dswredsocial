@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CommunityLinkForm;
 
+
 class CommunityLinkController extends Controller
 {
     /**
@@ -16,6 +17,10 @@ class CommunityLinkController extends Controller
      */
     public function index(Channel $channel = null)
     {
+        if (request()->exists('search')) {
+            $value = request()->get('search');
+            $links = (new CommunityLinkQuery())->searchLink($value);
+        } else
         if ($channel) {
             $links = (new CommunityLinkQuery())->getByChannel($channel);
         } else {

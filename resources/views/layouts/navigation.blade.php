@@ -27,7 +27,20 @@
                     </x-nav-link>
                 </div>
             </div>
-
+            <div class="flex items-center p-2 rounded-lg shadow-md text-white">
+                <form action="/dashboard" method="get">
+                    <input
+                        type="text"
+                        id="search"
+                        name="search"
+                        placeholder="Buscar..."
+                        class="px-4 py-2 w-64 border border-gray-300 bg-gray-500 rounded-l-lg focus:outline-none focus:border-blue-400 placeholder-white">
+                    <input
+                        type="submit"
+                        value="Buscar"
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-r-lg cursor-pointer">
+                </form>
+            </div>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
@@ -53,7 +66,7 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -99,7 +112,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                        onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
