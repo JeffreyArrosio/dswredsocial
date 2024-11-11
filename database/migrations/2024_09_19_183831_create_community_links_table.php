@@ -16,11 +16,11 @@ return new class extends Migration
 
             $table->bigInteger('user_id')->unsigned()->index();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->bigInteger('channel_id')->unsigned()->index();
 
-            $table->foreign('channel_id')->references('id')->on('channels');
+            $table->foreign('channel_id')->references('id')->on('channels')->onDelete('cascade');
 
             $table->string('title');
 
